@@ -35,4 +35,41 @@ window.onload = function() {
     nonVegMeal.showItem();
     console.log("Total Cost: " + nonVegMeal.getCost());
 
+    function makeAdder(x) {
+        return function(y) {
+            return x + y;
+        };
+    }
+
+    var add5 = makeAdder(5);
+    var add10 = makeAdder(10);
+
+    console.log(add5(2)); // 7
+    console.log(add10(2)); // 12
+
+    function Apple() {
+        this.color = "red";
+    }
+    Apple.prototype.getColor = function() {
+        return this.color;
+    }
+
+    var apple = new Apple();
+    var applepro = Object.getPrototypeOf(apple);
+
+    //    applepro === Apple.prototype ? this.alert("1") : 1;
+
+    var a1 = Object.create(applepro);
+
+    function throwa() {
+        throw "1";
+    }
+
+    try {
+        throwa();
+    } catch (e) {
+        debugger;
+
+    }
+
 }
