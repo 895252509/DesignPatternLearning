@@ -97,7 +97,7 @@ CollaborativeFilter.prototype = {
     pred: function(uid, mid) {
         var sim_accumulate = 0.0;
         var rat_acc = 0.0;
-
+        $("#panel-othertime").parent().find("lable:not(:last-child)")
 
         for (var item in this.user_movie[uid]) {
             // 计算该物品与待评价物品的相似度 
