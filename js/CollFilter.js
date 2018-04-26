@@ -152,3 +152,37 @@ CollaborativeFilter.prototype = {
 
 var a = new CollaborativeFilter();
 a.test();
+
+function SVD(k) {
+    this.k = k || 20;
+
+    this.bi = [];
+    this.bu = [];
+    this.qi = [];
+    this.pu = [];
+
+    this.user_movie = [];
+    this.movie_user = [];
+
+}
+SVD.prototype = {
+
+    pred: function(uid, mid) {
+        this.bi[mid] = this.bi[mid] || 0;
+        this.bu[uid] = this.bu[uid] || 0;
+
+        this.qi[mid] = this.qi[mid] || this.zeros(this.k, 1);
+        this.pu[uid] = this.pu[uid] || this.zeros(this.k, 1);
+
+
+    },
+
+    zeros: function(shape, ch) {
+        var arr = [];
+        for (var i = 0; i < shape; i++) {
+            arr[i] = ch;
+        }
+        return arr;
+    }
+
+}
